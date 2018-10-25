@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 25 Oct 2018 10:30:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 25 Oct 2018 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://janusvm.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>LaTeX Workshop</title>
       <link>https://janusvm.github.io/talk/aau-latex-workshop/</link>
-      <pubDate>Thu, 25 Oct 2018 10:30:00 +0200</pubDate>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0200</pubDate>
       
       <guid>https://janusvm.github.io/talk/aau-latex-workshop/</guid>
       <description>Intended audience First year Math/Math-Econ/Math-Tech students at Aalborg University.</description>

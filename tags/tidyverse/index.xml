@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 24 Oct 2018 21:13:42 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 25 Oct 2018 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://janusvm.github.io/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Non-Standard Evaluation and Metaprogramming in R</title>
       <link>https://janusvm.github.io/talk/nse-aalborgrug/</link>
-      <pubDate>Wed, 24 Oct 2018 21:13:42 +0200</pubDate>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0200</pubDate>
       
       <guid>https://janusvm.github.io/talk/nse-aalborgrug/</guid>
       <description>Intended audience Members of the Aalborg R User Group.</description>
