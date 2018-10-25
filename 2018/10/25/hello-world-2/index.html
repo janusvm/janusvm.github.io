@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.0.0">
+  <meta name="generator" content="Hugo 0.49.2" />
+  <meta name="author" content="Janus Valberg-Madsen">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Second time&rsquo;s the charm, right?
+Last time I made an attempt at getting my github.io site up and running, it ended up being half-baked and I left it unused for over a year. In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of janusvm.github.io/repo links that were nowhere to be found on what ought to be the root site.
+After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://janusvm.github.io/2018/10/25/hello-world-2/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#bf616a">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Abel|Roboto:400,400italic,700|Roboto+Condensed:300">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/nord.css">
+  
+  <link rel="stylesheet" href="/css/fonts/iosevka.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="https://janusvm.github.io/index.xml" type="application/rss+xml" title="Janus Valberg-Madsen">
+  <link rel="feed" href="https://janusvm.github.io/index.xml" type="application/rss+xml" title="Janus Valberg-Madsen">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://janusvm.github.io/2018/10/25/hello-world-2/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@atokniiro">
+  <meta property="twitter:creator" content="@atokniiro">
+  
+  <meta property="og:site_name" content="Janus Valberg-Madsen">
+  <meta property="og:url" content="https://janusvm.github.io/2018/10/25/hello-world-2/">
+  <meta property="og:title" content="Hello World! (2) | Janus Valberg-Madsen">
+  <meta property="og:description" content="Second time&rsquo;s the charm, right?
+Last time I made an attempt at getting my github.io site up and running, it ended up being half-baked and I left it unused for over a year. In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of janusvm.github.io/repo links that were nowhere to be found on what ought to be the root site.
+After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.">
+  
+  
+    
+  <meta property="og:image" content="https://janusvm.github.io/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-10-25T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-10-25T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Hello World! (2) | Janus Valberg-Madsen</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Janus Valberg-Madsen</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span><i class='fas fa-home'></i> Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span><i class='fas fa-book'></i> Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#talks">
+            
+            <span><i class='fas fa-chalkboard-teacher'></i> Talks</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/resource/">
+            
+            <span><i class='fas fa-file-alt'></i> Resources</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span><i class='fas fa-at'></i> Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#search">
+            
+            <span><i class='fas fa-search'></i></span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Hello World! (2)</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Janus Valberg-Madsen">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-10-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-10-25 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      2018-10-25
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Janus Valberg-Madsen">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/2018/10/25/hello-world-2/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/r/">R</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Hello%20World%21%20%282%29&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f25%2fhello-world-2%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f25%2fhello-world-2%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f25%2fhello-world-2%2f&amp;title=Hello%20World%21%20%282%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f25%2fhello-world-2%2f&amp;title=Hello%20World%21%20%282%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Hello%20World%21%20%282%29&amp;body=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f25%2fhello-world-2%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>Second time&rsquo;s the charm, right?</p>
+
+<p>Last time I made an attempt at getting my <code>github.io</code> site up and running, it ended up being half-baked and I left it unused for over a year.
+In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of <code>janusvm.github.io/repo</code> links that were nowhere to be found on what ought to be the root site.</p>
+
+<p>After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.
+Being an R enthusiast, it was a no-brainer for me to use <a href="https://bookdown.org/yihui/blogdown/" target="_blank">blogdown</a>, and following the recommendation in the book, I opted for the <a href="https://sourcethemes.com/academic/" target="_blank">Academic Hugo theme</a> for its nice defaults, extra features, and customisation options.</p>
+
+<h2 id="theme-customisations">Theme customisations</h2>
+
+<p>The Academic theme has eight built-in colour themes and three font themes, but none of them hit the mark 100% for me.
+When it comes to colour themes, I&rsquo;m hopelessly in love with <a href="https://github.com/arcticicestudio/nord" target="_blank">Nord</a> — I use it for Emacs, Bash, and whatever else that lets me configure its interface colours.
+Here&rsquo;s how I&rsquo;ve set it up on this site:</p>
+
+<p>In a file called <code>/data/themes/nord.toml</code>:</p>
+
+<pre><code class="language-toml"># Theme metadata
+name = &quot;Nord&quot;
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = &quot;#bf616a&quot;
+primary_light = &quot;#d08770&quot;
+primary_dark = &quot;#a5545b&quot;
+
+# Menu
+menu_primary = &quot;#3b4252&quot;
+menu_text = &quot;#eceff4&quot;
+menu_text_active = &quot;#88c0d0&quot;
+menu_title = &quot;#eceff4&quot;
+
+# Home sections
+home_section_odd = &quot;#fff&quot;
+home_section_even = &quot;#eff2f7&quot;
+</code></pre>
+
+<p>and then in my <code>config.toml</code>:</p>
+
+<pre><code class="language-toml">color_theme = &quot;nord&quot;
+</code></pre>
+
+<p>This sets the colours of just about everything except for code blocks.
+<a href="https://highlightjs.org/" target="_blank">Highlight.js</a> <em>does</em> have the Nord theme, but it turns out it isn&rsquo;t on the CDNJS server yet, which means that you can&rsquo;t just put <code>highlight_style = &quot;nord&quot;</code> in <code>config.toml</code>.</p>
+
+<p>Instead, download <code>nord.css</code> from the <a href="https://github.com/highlightjs/highlight.js" target="_blank">repository</a>, put it in <code>/static/css</code>, and add <code>&quot;nord.css&quot;</code> to the <code>custom_css</code> array in the config, e.g.</p>
+
+<pre><code class="language-toml">custom_css = [&quot;nord.css&quot;, &quot;fonts/iosevka.css&quot;, &quot;custom.css&quot;]
+</code></pre>
+
+<p>The other two CSS files in there define the <a href="https://github.com/be5invis/Iosevka" target="_blank">Iosevka</a> font face and some miscellaneous adjustments, respectively.
+I have used many different monospace fonts for coding, but after recently discovering Iosevka, I may finally have found a font to settle down with.</p>
+
+<p>The fonts used on the site are customised via the file <code>/data/fonts/custom.toml</code>:</p>
+
+<pre><code class="language-toml"># Font style metadata
+name = &quot;Custom&quot;
+
+# Optional Google font URL
+google_fonts = &quot;Abel|Roboto:400,400italic,700|Roboto+Condensed:300&quot;
+
+# Font families
+heading_font = &quot;Abel&quot;
+body_font = &quot;Roboto&quot;
+nav_font = &quot;Roboto Condensed&quot;
+mono_font = &quot;Iosevka SS04 Web&quot;
+
+# Font size
+font_size = &quot;20&quot;
+font_size_small = &quot;16&quot;
+</code></pre>
+
+<p>and the config entry:</p>
+
+<pre><code class="language-toml">font = &quot;custom&quot;
+</code></pre>
+
+<h2 id="deployment">Deployment</h2>
+
+<p>It turns out to be relatively simple to have the source files in one repository and the published site in another, if you&rsquo;re comfortable using git submodules:</p>
+
+<ol>
+<li>Create the repository <code>user.github.io</code> on GitHub (where <code>user</code> is your username)</li>
+
+<li><p>If you don&rsquo;t initialise it with any files, push an empty commit (from a temporary folder somewhere else) to it first:</p>
+
+<pre><code>git init
+git commit -m &quot;Initial commit&quot; --allow-empty
+git remote add origin https://github.com/user/user.github.io.git
+git push -u origin master
+</code></pre></li>
+
+<li><p>From the folder with your blog source (assuming it&rsquo;s already a git repository), add <code>user.github.io</code> as a submodule in <code>/public</code>:</p>
+
+<pre><code>rm -rf public
+git submodule add -b master https://github.com/user/user.github.io.git public
+</code></pre></li>
+
+<li><p>Build the site:</p>
+
+<pre><code>hugo
+</code></pre></li>
+
+<li><p>Commit and push the submodule:</p>
+
+<pre><code>cd public
+git add .
+git commit -m &quot;Build site&quot;
+git push -u origin master
+</code></pre></li>
+</ol>
+
+<p>After that, the site is deployed.
+In my experience, GitHub Pages sometimes don&rsquo;t actually build the site the first time you push after activating Pages, so if nothing shows up after a few minutes, try pushing another commit.</p>
+
+<h2 id="links">Links</h2>
+
+<p>I found <a href="https://lmyint.github.io/post/hugo-academic-tips" target="_blank">this post</a> by Leslie Myint in addition to <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github" target="_blank">Hugo&rsquo;s hosting guide</a> and the <a href="https://sourcethemes.com/academic/docs" target="_blank">Academic theme documentation</a> to be very helpful when setting up this site.</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/blogdown/">blogdown</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/nose.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Janus Valberg-Madsen</a></h5>
+    <h6 class="card-subtitle">PhD student of Mathematics-Economics</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/janusvm" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/AtokNiiro" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//instagram.com/atokniiro" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//tapas.io/series/Treehouse" target="_blank" rel="noopener">
+          <i class="fas fa-comment-dots"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//linkedin.com/in/janusvm" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:janus@math.aau.dk" target="_blank" rel="noopener">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "janusvm" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/makefile.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/markdown.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//janusvm.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

@@ -11,6 +11,136 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Hello World! (2)</title>
+      <link>https://janusvm.github.io/2018/10/25/hello-world-2/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://janusvm.github.io/2018/10/25/hello-world-2/</guid>
+      <description>
+
+&lt;p&gt;Second time&amp;rsquo;s the charm, right?&lt;/p&gt;
+
+&lt;p&gt;Last time I made an attempt at getting my &lt;code&gt;github.io&lt;/code&gt; site up and running, it ended up being half-baked and I left it unused for over a year.
+In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of &lt;code&gt;janusvm.github.io/repo&lt;/code&gt; links that were nowhere to be found on what ought to be the root site.&lt;/p&gt;
+
+&lt;p&gt;After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.
+Being an R enthusiast, it was a no-brainer for me to use &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34; target=&#34;_blank&#34;&gt;blogdown&lt;/a&gt;, and following the recommendation in the book, I opted for the &lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic Hugo theme&lt;/a&gt; for its nice defaults, extra features, and customisation options.&lt;/p&gt;
+
+&lt;h2 id=&#34;theme-customisations&#34;&gt;Theme customisations&lt;/h2&gt;
+
+&lt;p&gt;The Academic theme has eight built-in colour themes and three font themes, but none of them hit the mark 100% for me.
+When it comes to colour themes, I&amp;rsquo;m hopelessly in love with &lt;a href=&#34;https://github.com/arcticicestudio/nord&#34; target=&#34;_blank&#34;&gt;Nord&lt;/a&gt; — I use it for Emacs, Bash, and whatever else that lets me configure its interface colours.
+Here&amp;rsquo;s how I&amp;rsquo;ve set it up on this site:&lt;/p&gt;
+
+&lt;p&gt;In a file called &lt;code&gt;/data/themes/nord.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# Theme metadata
+name = &amp;quot;Nord&amp;quot;
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = &amp;quot;#bf616a&amp;quot;
+primary_light = &amp;quot;#d08770&amp;quot;
+primary_dark = &amp;quot;#a5545b&amp;quot;
+
+# Menu
+menu_primary = &amp;quot;#3b4252&amp;quot;
+menu_text = &amp;quot;#eceff4&amp;quot;
+menu_text_active = &amp;quot;#88c0d0&amp;quot;
+menu_title = &amp;quot;#eceff4&amp;quot;
+
+# Home sections
+home_section_odd = &amp;quot;#fff&amp;quot;
+home_section_even = &amp;quot;#eff2f7&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then in my &lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;color_theme = &amp;quot;nord&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This sets the colours of just about everything except for code blocks.
+&lt;a href=&#34;https://highlightjs.org/&#34; target=&#34;_blank&#34;&gt;Highlight.js&lt;/a&gt; &lt;em&gt;does&lt;/em&gt; have the Nord theme, but it turns out it isn&amp;rsquo;t on the CDNJS server yet, which means that you can&amp;rsquo;t just put &lt;code&gt;highlight_style = &amp;quot;nord&amp;quot;&lt;/code&gt; in &lt;code&gt;config.toml&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Instead, download &lt;code&gt;nord.css&lt;/code&gt; from the &lt;a href=&#34;https://github.com/highlightjs/highlight.js&#34; target=&#34;_blank&#34;&gt;repository&lt;/a&gt;, put it in &lt;code&gt;/static/css&lt;/code&gt;, and add &lt;code&gt;&amp;quot;nord.css&amp;quot;&lt;/code&gt; to the &lt;code&gt;custom_css&lt;/code&gt; array in the config, e.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;custom_css = [&amp;quot;nord.css&amp;quot;, &amp;quot;fonts/iosevka.css&amp;quot;, &amp;quot;custom.css&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The other two CSS files in there define the &lt;a href=&#34;https://github.com/be5invis/Iosevka&#34; target=&#34;_blank&#34;&gt;Iosevka&lt;/a&gt; font face and some miscellaneous adjustments, respectively.
+I have used many different monospace fonts for coding, but after recently discovering Iosevka, I may finally have found a font to settle down with.&lt;/p&gt;
+
+&lt;p&gt;The fonts used on the site are customised via the file &lt;code&gt;/data/fonts/custom.toml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# Font style metadata
+name = &amp;quot;Custom&amp;quot;
+
+# Optional Google font URL
+google_fonts = &amp;quot;Abel|Roboto:400,400italic,700|Roboto+Condensed:300&amp;quot;
+
+# Font families
+heading_font = &amp;quot;Abel&amp;quot;
+body_font = &amp;quot;Roboto&amp;quot;
+nav_font = &amp;quot;Roboto Condensed&amp;quot;
+mono_font = &amp;quot;Iosevka SS04 Web&amp;quot;
+
+# Font size
+font_size = &amp;quot;20&amp;quot;
+font_size_small = &amp;quot;16&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and the config entry:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;font = &amp;quot;custom&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+
+&lt;p&gt;It turns out to be relatively simple to have the source files in one repository and the published site in another, if you&amp;rsquo;re comfortable using git submodules:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create the repository &lt;code&gt;user.github.io&lt;/code&gt; on GitHub (where &lt;code&gt;user&lt;/code&gt; is your username)&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If you don&amp;rsquo;t initialise it with any files, push an empty commit (from a temporary folder somewhere else) to it first:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git init
+git commit -m &amp;quot;Initial commit&amp;quot; --allow-empty
+git remote add origin https://github.com/user/user.github.io.git
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;From the folder with your blog source (assuming it&amp;rsquo;s already a git repository), add &lt;code&gt;user.github.io&lt;/code&gt; as a submodule in &lt;code&gt;/public&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rm -rf public
+git submodule add -b master https://github.com/user/user.github.io.git public
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Build the site:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Commit and push the submodule:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd public
+git add .
+git commit -m &amp;quot;Build site&amp;quot;
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After that, the site is deployed.
+In my experience, GitHub Pages sometimes don&amp;rsquo;t actually build the site the first time you push after activating Pages, so if nothing shows up after a few minutes, try pushing another commit.&lt;/p&gt;
+
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+
+&lt;p&gt;I found &lt;a href=&#34;https://lmyint.github.io/post/hugo-academic-tips&#34; target=&#34;_blank&#34;&gt;this post&lt;/a&gt; by Leslie Myint in addition to &lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github&#34; target=&#34;_blank&#34;&gt;Hugo&amp;rsquo;s hosting guide&lt;/a&gt; and the &lt;a href=&#34;https://sourcethemes.com/academic/docs&#34; target=&#34;_blank&#34;&gt;Academic theme documentation&lt;/a&gt; to be very helpful when setting up this site.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Git Workshop</title>
       <link>https://janusvm.github.io/talk/aau-git-workshop/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0200</pubDate>
