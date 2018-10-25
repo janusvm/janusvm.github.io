@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>teaching on Janus Valberg-Madsen</title>
+    <link>https://janusvm.github.io/tags/teaching/</link>
+    <description>Recent content in teaching on Janus Valberg-Madsen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 25 Oct 2018 10:30:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://janusvm.github.io/tags/teaching/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LaTeX Workshop</title>
+      <link>https://janusvm.github.io/talk/aau-latex-workshop/</link>
+      <pubDate>Thu, 25 Oct 2018 10:30:00 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/talk/aau-latex-workshop/</guid>
+      <description>Intended audience First year Math/Math-Econ/Math-Tech students at Aalborg University.</description>
+    </item>
+    
+    <item>
+      <title>Git Workshop</title>
+      <link>https://janusvm.github.io/talk/aau-git-workshop/</link>
+      <pubDate>Thu, 25 Oct 2018 09:35:00 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/talk/aau-git-workshop/</guid>
+      <description>Intended audience First year Math/Math-Econ/Math-Tech students at Aalborg University.</description>
+    </item>
+    
+  </channel>
+</rss>

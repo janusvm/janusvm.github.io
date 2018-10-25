@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Janus Valberg-Madsen on Janus Valberg-Madsen</title>
+    <link>https://janusvm.github.io/</link>
+    <description>Recent content in Janus Valberg-Madsen on Janus Valberg-Madsen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0200</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Links</title>
+      <link>https://janusvm.github.io/resource/git-links/</link>
+      <pubDate>Thu, 25 Oct 2018 14:06:30 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/resource/git-links/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Slides from my &lt;a href=&#34;../../talk/aau-git-workshop&#34;&gt;Git Workshop&lt;/a&gt;: &lt;a href=&#34;https://janusvm.github.io/aau-git-workshop&#34; target=&#34;_blank&#34;&gt;janusvm.github.io/aau-git-workshop&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Very simple introduction to Git: &lt;a href=&#34;http://think-like-a-git.net/&#34; target=&#34;_blank&#34;&gt;think-like-a-git.net&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;More comprehensive tutorials: &lt;a href=&#34;https://www.atlassian.com/git/tutorials&#34; target=&#34;_blank&#34;&gt;www.atlassian.com/git/tutorials&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Tips on writing commit messages: &lt;a href=&#34;https://chris.beams.io/posts/git-commit/&#34; target=&#34;_blank&#34;&gt;chris.beams.io/posts/git-commit&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Fixing mistakes: &lt;a href=&#34;http://sethrobertson.github.io/GitFixUm/fixup.html&#34; target=&#34;_blank&#34;&gt;sethrobertson.github.io/GitFixUm/fixup.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LaTeX Workshop</title>
+      <link>https://janusvm.github.io/talk/aau-latex-workshop/</link>
+      <pubDate>Thu, 25 Oct 2018 10:30:00 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/talk/aau-latex-workshop/</guid>
+      <description>
+
+&lt;h3 id=&#34;intended-audience&#34;&gt;Intended audience&lt;/h3&gt;
+
+&lt;p&gt;First year Math/Math-Econ/Math-Tech students at Aalborg University.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git Workshop</title>
+      <link>https://janusvm.github.io/talk/aau-git-workshop/</link>
+      <pubDate>Thu, 25 Oct 2018 09:35:00 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/talk/aau-git-workshop/</guid>
+      <description>
+
+&lt;h3 id=&#34;intended-audience&#34;&gt;Intended audience&lt;/h3&gt;
+
+&lt;p&gt;First year Math/Math-Econ/Math-Tech students at Aalborg University.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Non-Standard Evaluation and Metaprogramming in R</title>
+      <link>https://janusvm.github.io/talk/nse-aalborgrug/</link>
+      <pubDate>Wed, 24 Oct 2018 21:13:42 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/talk/nse-aalborgrug/</guid>
+      <description>
+
+&lt;h3 id=&#34;intended-audience&#34;&gt;Intended audience&lt;/h3&gt;
+
+&lt;p&gt;Members of the &lt;a href=&#34;https://meetu.ps/c/3yFNb/CQYc2/d&#34; target=&#34;_blank&#34;&gt;Aalborg R User Group&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

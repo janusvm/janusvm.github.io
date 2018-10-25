@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Janus Valberg-Madsen</title>
+    <link>https://janusvm.github.io/tags/</link>
+    <description>Recent content in Tags on Janus Valberg-Madsen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 24 Oct 2018 21:13:42 +0200</lastBuildDate>
+    
+	<atom:link href="https://janusvm.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R</title>
+      <link>https://janusvm.github.io/tags/r/</link>
+      <pubDate>Wed, 24 Oct 2018 21:13:42 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://janusvm.github.io/tags/git/</link>
+      <pubDate>Thu, 25 Oct 2018 09:35:00 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>https://janusvm.github.io/tags/latex/</link>
+      <pubDate>Thu, 25 Oct 2018 10:30:00 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metaprogramming</title>
+      <link>https://janusvm.github.io/tags/metaprogramming/</link>
+      <pubDate>Wed, 24 Oct 2018 21:13:42 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/tags/metaprogramming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://janusvm.github.io/tags/programming/</link>
+      <pubDate>Wed, 24 Oct 2018 21:13:42 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teaching</title>
+      <link>https://janusvm.github.io/tags/teaching/</link>
+      <pubDate>Thu, 25 Oct 2018 10:30:00 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/tags/teaching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>https://janusvm.github.io/tags/tidyverse/</link>
+      <pubDate>Wed, 24 Oct 2018 21:13:42 +0200</pubDate>
+      
+      <guid>https://janusvm.github.io/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
