@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>metaprogramming on Janus Valberg-Madsen</title>
-    <link>https://janusvm.github.io/tags/metaprogramming/</link>
-    <description>Recent content in metaprogramming on Janus Valberg-Madsen</description>
+    <title>makefile on Janus Valberg-Madsen</title>
+    <link>https://janusvm.github.io/tags/makefile/</link>
+    <description>Recent content in makefile on Janus Valberg-Madsen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://janusvm.github.io/tags/metaprogramming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://janusvm.github.io/tags/makefile/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,15 +21,6 @@
       <description>Imagine the following situation:
 You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files. It&amp;rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences. How should the Makefile for this look?
 I found myself in this very situation not long ago, when I was working on the slides for my Git Workshop, which included a lot of SVG figures depicting commit graphs.</description>
-    </item>
-    
-    <item>
-      <title>Non-Standard Evaluation and Metaprogramming in R</title>
-      <link>https://janusvm.github.io/talk/nse-aalborgrug/</link>
-      <pubDate>Thu, 25 Oct 2018 00:00:00 +0200</pubDate>
-      
-      <guid>https://janusvm.github.io/talk/nse-aalborgrug/</guid>
-      <description>Intended audience Members of the Aalborg R User Group.</description>
     </item>
     
   </channel>

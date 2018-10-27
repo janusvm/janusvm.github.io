@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.0.0">
+  <meta name="generator" content="Hugo 0.49.2" />
+  <meta name="author" content="Janus Valberg-Madsen">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Imagine the following situation:
+You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files. It&rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences. How should the Makefile for this look?
+I found myself in this very situation not long ago, when I was working on the slides for my Git Workshop, which included a lot of SVG figures depicting commit graphs.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#bf616a">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Abel|Roboto:400,400italic,700|Roboto+Condensed:300">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/nord.css">
+  
+  <link rel="stylesheet" href="/css/fonts/iosevka.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="https://janusvm.github.io/index.xml" type="application/rss+xml" title="Janus Valberg-Madsen">
+  <link rel="feed" href="https://janusvm.github.io/index.xml" type="application/rss+xml" title="Janus Valberg-Madsen">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@atokniiro">
+  <meta property="twitter:creator" content="@atokniiro">
+  
+  <meta property="og:site_name" content="Janus Valberg-Madsen">
+  <meta property="og:url" content="https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/">
+  <meta property="og:title" content="Adding dependencies on the fly in a Makefile | Janus Valberg-Madsen">
+  <meta property="og:description" content="Imagine the following situation:
+You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files. It&rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences. How should the Makefile for this look?
+I found myself in this very situation not long ago, when I was working on the slides for my Git Workshop, which included a lot of SVG figures depicting commit graphs.">
+  
+  
+    
+  <meta property="og:image" content="https://janusvm.github.io/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-10-27T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-10-27T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Adding dependencies on the fly in a Makefile | Janus Valberg-Madsen</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Janus Valberg-Madsen</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span><i class='fas fa-home'></i> Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span><i class='fas fa-book'></i> Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#talks">
+            
+            <span><i class='fas fa-chalkboard-teacher'></i> Talks</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/resource/">
+            
+            <span><i class='fas fa-file-alt'></i> Resources</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span><i class='fas fa-at'></i> Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#search">
+            
+            <span><i class='fas fa-search'></i></span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Adding dependencies on the fly in a Makefile</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Janus Valberg-Madsen">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-10-27 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-10-27 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      2018-10-27
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Janus Valberg-Madsen">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/#disqus_thread"></a>
+  
+
+  
+  
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f&amp;title=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f&amp;title=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile&amp;body=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>Imagine the following situation:</p>
+
+<p>You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files.
+It&rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences.
+How should the Makefile for this look?</p>
+
+<p>I found myself in this very situation not long ago, when I was working on the slides for my <a href="/talk/aau-git-workshop/">Git Workshop</a>, which included a lot of SVG figures depicting commit graphs.
+Each of these figures were generated from a <code>.tex</code> file using Latexmk, so the associated build targets and rule looked something like this:</p>
+
+<pre><code class="language-makefile">SVG := $(patsubst %.tex,%.svg,$(wildcard figs/*.tex))
+
+$(SVG): %.svg: %.tex
+	@cd figs &amp;&amp; \
+	latexmk -pdf -quiet $(&lt;F) &amp;&amp; \
+	pdf2svg $(&lt;F:.tex=.pdf) $(@F) &amp;&amp; \
+	latexmk -C $(&lt;F)
+</code></pre>
+
+<p>The first line defines a list of the eventual SVG files by looking up all the <code>.tex</code> files in subdirectory <code>figs</code> and changing their file extensions to <code>.svg</code>.
+In the next line, a <a href="https://www.gnu.org/software/make/manual/html_node/Static-Usage.html" target="_blank">static pattern rule</a> is telling Make to use the pattern <code>%.svg: %.tex</code> only for the targets defined in that list.
+The files are built by compiling a PDF with <code>pdflatex</code> (via <code>latexmk</code>), converting that into an SVG with <code>pdf2svg</code>, and finally deleting all the auxiliary build files again with <code>latexmk</code>.</p>
+
+<p>So far so good, but there was one problem:
+in a few of those SVGs, I included some icons in the form of PDFs from another subdirectory <code>figs/icons</code>.
+To make a long story short, I wanted to use some FontAwesome icons for certain things, which required me to compile with <code>xelatex</code>, but the graphs in the SVGs got messed up, if I didn&rsquo;t use <code>pdflatex</code> for those.</p>
+
+<p>So, as a compromise, I compiled PDF files for each of the FA symbols I needed and input them with <code>\includegraphics</code> in the graphs, adding the following lines to my Makefile:</p>
+
+<pre><code class="language-makefile">PDF := $(patsubst %.tex,%.pdf,$(wildcard figs/icons/*.tex))
+
+$(PDF): %.pdf: %.tex
+	@cd figs/icons &amp;&amp; \
+	latexmk -xelatex -quiet $(&lt;F) &amp;&amp; \
+	latexmk -c $(&lt;F)
+</code></pre>
+
+<p>Same as before, except it uses <code>xelatex</code> (again via <code>latexmk</code>) to compile, and there&rsquo;s no conversion to SVG.</p>
+
+<p>The question was now: how do I express the relationship between the PDF icons and the SVG figures in my Makefile?</p>
+
+<h3 id="attempt-1-just-slapping-it-in-there">Attempt 1: just slapping it in there</h3>
+
+<p>My first impulse was to simply add the <code>PDF</code> list as a dependency to <code>SVG</code>.
+Simple.</p>
+
+<pre><code class="language-makefile">$(SVG): %.svg: %.tex $(PDF)
+</code></pre>
+
+<p>And sure, it worked, but it caused <strong>every single SVG figure</strong> to be rebuilt if <strong>any</strong> PDF icon had been changed.
+No good.</p>
+
+<h3 id="attempt-2-adding-an-additional-rule-to-a-subset-of-the-svgs">Attempt 2: adding an additional rule to a subset of the SVGs</h3>
+
+<p>Then, I had the idea to peek a bit in the files to determine which of the <code>SVG</code> targets should <em>actually</em> depend on <code>PDF</code>, taking advantage of the fact that you can define <a href="https://www.gnu.org/software/make/manual/html_node/Multiple-Rules.html" target="_blank">multiple rules for the same target</a> (as long as you only have one build recipe):</p>
+
+<pre><code class="language-makefile">SVG_WITH_ICONS := $(shell grep -l '\\includegraphics' figs/*.tex)
+
+$(SVG_WITH_ICONS): $(PDF)
+</code></pre>
+
+<p>Adding these two lines improved the situation slightly;
+only the targets that included at least one PDF icon were rebuilt when the PDF changed, but still all of them for any PDF.
+Hmm.</p>
+
+<h3 id="attempt-3-enter-metaprogramming">Attempt 3: enter metaprogramming</h3>
+
+<p>Long after I gave the talk those figures were for, I finally found an acceptable solution for the problem: Make&rsquo;s <a href="https://www.gnu.org/software/make/manual/html_node/Eval-Function.html" target="_blank">eval function</a>.</p>
+
+<p>Put shortly, you can define a rule which is deferred and can be expanded (<code>eval</code>&lsquo;ed) in a different context.
+This was exactly what I needed, as it allowed me to write automatic, extra rules for each individual <code>SVG</code> target!
+Here&rsquo;s how:</p>
+
+<pre><code class="language-makefile">define PDF_RULE
+$T: $(shell grep -hoE '\bicons/.+\b' $(T:.svg=.tex) \
+      | sort -u | sed -e 's/$$/.pdf/g' -e 's/^/figs\//g' \
+      | paste -s -d ' ')
+endef
+
+$(foreach T,$(SVG),$(eval $(PDF_RULE)))
+</code></pre>
+
+<p>There&rsquo;s a lot going on in <code>PDF_RULE</code>, so here&rsquo;s a breakdown:</p>
+
+<ul>
+<li><code>$T</code> is a variable to be expanded later into the individual files in <code>SVG</code></li>
+
+<li><p><code>grep -hoE '\bicons/.+\b' $(T:.svg=.tex)</code> prints all the occurences of a string starting with &lsquo;icons/&rsquo; in the corresponding <code>.tex</code> file as individual lines, e.g.</p>
+
+<pre><code>icons/user
+icons/laptop
+icons/server
+</code></pre></li>
+
+<li><p><code>sort -u</code> sorts the lines and (more importantly) deletes duplicates</p></li>
+
+<li><p><code>sed -e 's/$$/.pdf/g' -e 's/^/figs\//g'</code> first appends <code>.pdf</code> to the end (<code>$</code>) of the lines, then prepends <code>figs/</code> to the beginning (<code>^</code>), e.g.</p>
+
+<pre><code>figs/icons/user.pdf
+figs/icons/laptop.pdf
+figs/icons/server.pdf
+</code></pre>
+
+<p>(since <code>$</code> is a special character used for expansion in Make, you have to put <code>$$</code> to treat it as a literal <code>$</code> symbol)</p></li>
+
+<li><p>lastly, <code>paste -s -d ' '</code> collapses the lines into one line, separated by spaces</p></li>
+</ul>
+
+<p>When the <code>foreach</code> loop is run, the contents of <code>PDF_RULE</code> is expanded for each of the files in <code>SVG</code>, resulting in <em>new rules being added at runtime</em>.
+So for example, when expanded for a file which <em>doesn&rsquo;t</em> include any PDFs, e.g. <code>figs/git-add.svg</code>, it produces the empty rule</p>
+
+<pre><code class="language-makefile">figs/git-add.svg:
+</code></pre>
+
+<p>which does nothing.
+However, when expanded for a file which <em>does</em> include PDFs, e.g. <code>figs/git-push.svg</code>, the <code>shell</code> command looks through <code>figs/git-push.tex</code>, finds the included graphics <code>icons/laptop.pdf</code> and <code>icons/server.pdf</code> and creates the rule</p>
+
+<pre><code class="language-makefile">figs/git-push.svg: figs/icons/laptop.pdf figs/icons/server.pdf
+</code></pre>
+
+<p>which causes <code>figs/git-push.svg</code> to be rebuilt whenever those specific PDFs are changed.
+So basically, this corresponds to manually writing out rules for each individual SVG file, but it&rsquo;s all done automatically!</p>
+
+<p>Here&rsquo;s the full Makefile:</p>
+
+<pre><code class="language-makefile">SVG := $(patsubst %.tex,%.svg,$(wildcard figs/*.tex))
+PDF := $(patsubst %.tex,%.pdf,$(wildcard figs/icons/*.tex))
+
+all: $(SVG)
+
+define PDF_RULE
+$T: $(shell grep -hoE '\bicons/.+\b' $(T:.svg=.tex) \
+      | sort -u | sed -e 's/$$/.pdf/g' -e 's/^/figs\//g' \
+      | paste -s -d ' ')
+endef
+
+$(foreach T,$(SVG),$(eval $(PDF_RULE)))
+
+$(SVG): %.svg: %.tex
+	@cd figs &amp;&amp; \
+	latexmk -pdf -quiet $(&lt;F) &amp;&amp; \
+	pdf2svg $(&lt;F:.tex=.pdf) $(@F) &amp;&amp; \
+	latexmk -C $(&lt;F)
+
+$(PDF): %.pdf: %.tex
+	@cd figs/icons &amp;&amp; \
+	latexmk -xelatex -quiet $(&lt;F) &amp;&amp; \
+	latexmk -c $(&lt;F)
+
+clean:
+	@rm -f $(SVG)
+	@rm -f $(PDF)
+	@cd figs &amp;&amp; latexmk -C
+	@cd figs/icons &amp;&amp; latexmk -C
+
+.PHONY: all clean
+</code></pre>
+
+<p>As a final comment, I should probably point out that I use GNU Make — I&rsquo;m not sure if any of the above features are GNU specific.</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/makefile/">makefile</a>
+  
+  <a class="badge badge-light" href="/tags/metaprogramming/">metaprogramming</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/nose.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Janus Valberg-Madsen</a></h5>
+    <h6 class="card-subtitle">PhD student of Mathematics-Economics</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/janusvm" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/AtokNiiro" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//instagram.com/atokniiro" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//tapas.io/series/Treehouse" target="_blank" rel="noopener">
+          <i class="fas fa-comment-dots"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//linkedin.com/in/janusvm" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:janus@math.aau.dk" target="_blank" rel="noopener">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/talk/nse-aalborgrug/">Non-Standard Evaluation and Metaprogramming in R</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "janusvm" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/makefile.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/markdown.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//janusvm.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

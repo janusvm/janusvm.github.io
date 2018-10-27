@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>Adding dependencies on the fly in a Makefile</title>
+      <link>https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/</guid>
+      <description>Imagine the following situation:
+You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files. It&amp;rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences. How should the Makefile for this look?
+I found myself in this very situation not long ago, when I was working on the slides for my Git Workshop, which included a lot of SVG figures depicting commit graphs.</description>
+    </item>
+    
+    <item>
       <title>Hello World! (2)</title>
       <link>https://janusvm.github.io/2018/10/25/hello-world-2/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
