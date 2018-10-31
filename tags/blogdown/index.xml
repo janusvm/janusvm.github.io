@@ -14,10 +14,10 @@
     
     <item>
       <title>Hello World! (2)</title>
-      <link>https://janusvm.github.io/2018/10/25/hello-world-2/</link>
+      <link>https://janusvm.github.io/2018/10/hello-world-2/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://janusvm.github.io/2018/10/25/hello-world-2/</guid>
+      <guid>https://janusvm.github.io/2018/10/hello-world-2/</guid>
       <description>Second time&amp;rsquo;s the charm, right?
 Last time I made an attempt at getting my github.io site up and running, it ended up being half-baked and I left it unused for over a year. In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of janusvm.github.io/repo links that were nowhere to be found on what ought to be the root site.
 After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.</description>

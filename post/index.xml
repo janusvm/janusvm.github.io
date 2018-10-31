@@ -14,10 +14,10 @@
     
     <item>
       <title>Adding dependencies on the fly in a Makefile</title>
-      <link>https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/</link>
+      <link>https://janusvm.github.io/2018/10/adding-dependencies-on-the-fly-in-a-makefile/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/</guid>
+      <guid>https://janusvm.github.io/2018/10/adding-dependencies-on-the-fly-in-a-makefile/</guid>
       <description>Imagine the following situation:
 You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files. It&amp;rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences. How should the Makefile for this look?
 I found myself in this very situation not long ago, when I was working on the slides for my Git Workshop, which included a lot of SVG figures depicting commit graphs.</description>
@@ -25,10 +25,10 @@ I found myself in this very situation not long ago, when I was working on the sl
     
     <item>
       <title>Hello World! (2)</title>
-      <link>https://janusvm.github.io/2018/10/25/hello-world-2/</link>
+      <link>https://janusvm.github.io/2018/10/hello-world-2/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://janusvm.github.io/2018/10/25/hello-world-2/</guid>
+      <guid>https://janusvm.github.io/2018/10/hello-world-2/</guid>
       <description>Second time&amp;rsquo;s the charm, right?
 Last time I made an attempt at getting my github.io site up and running, it ended up being half-baked and I left it unused for over a year. In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of janusvm.github.io/repo links that were nowhere to be found on what ought to be the root site.
 After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.</description>

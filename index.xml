@@ -12,10 +12,10 @@
     
     <item>
       <title>Adding dependencies on the fly in a Makefile</title>
-      <link>https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/</link>
+      <link>https://janusvm.github.io/2018/10/adding-dependencies-on-the-fly-in-a-makefile/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/</guid>
+      <guid>https://janusvm.github.io/2018/10/adding-dependencies-on-the-fly-in-a-makefile/</guid>
       <description>
 
 &lt;p&gt;Imagine the following situation:&lt;/p&gt;
@@ -181,10 +181,10 @@ clean:
     
     <item>
       <title>Hello World! (2)</title>
-      <link>https://janusvm.github.io/2018/10/25/hello-world-2/</link>
+      <link>https://janusvm.github.io/2018/10/hello-world-2/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://janusvm.github.io/2018/10/25/hello-world-2/</guid>
+      <guid>https://janusvm.github.io/2018/10/hello-world-2/</guid>
       <description>
 
 &lt;p&gt;Second time&amp;rsquo;s the charm, right?&lt;/p&gt;

@@ -15,12 +15,12 @@
   
     
   
-  <meta name="description" content="Imagine the following situation:
-You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files. It&rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences. How should the Makefile for this look?
-I found myself in this very situation not long ago, when I was working on the slides for my Git Workshop, which included a lot of SVG figures depicting commit graphs.">
+  <meta name="description" content="Second time&rsquo;s the charm, right?
+Last time I made an attempt at getting my github.io site up and running, it ended up being half-baked and I left it unused for over a year. In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of janusvm.github.io/repo links that were nowhere to be found on what ought to be the root site.
+After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/">
+  <link rel="alternate" hreflang="en-us" href="https://janusvm.github.io/2018/10/hello-world-2/">
 
   
 
@@ -96,7 +96,7 @@ I found myself in this very situation not long ago, when I was working on the sl
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/">
+  <link rel="canonical" href="https://janusvm.github.io/2018/10/hello-world-2/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -104,27 +104,27 @@ I found myself in this very situation not long ago, when I was working on the sl
   <meta property="twitter:creator" content="@atokniiro">
   
   <meta property="og:site_name" content="Janus Valberg-Madsen">
-  <meta property="og:url" content="https://janusvm.github.io/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/">
-  <meta property="og:title" content="Adding dependencies on the fly in a Makefile | Janus Valberg-Madsen">
-  <meta property="og:description" content="Imagine the following situation:
-You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files. It&rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences. How should the Makefile for this look?
-I found myself in this very situation not long ago, when I was working on the slides for my Git Workshop, which included a lot of SVG figures depicting commit graphs.">
+  <meta property="og:url" content="https://janusvm.github.io/2018/10/hello-world-2/">
+  <meta property="og:title" content="Hello World! (2) | Janus Valberg-Madsen">
+  <meta property="og:description" content="Second time&rsquo;s the charm, right?
+Last time I made an attempt at getting my github.io site up and running, it ended up being half-baked and I left it unused for over a year. In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of janusvm.github.io/repo links that were nowhere to be found on what ought to be the root site.
+After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.">
   
   
     
   <meta property="og:image" content="https://janusvm.github.io/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-10-27T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-10-25T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2018-10-27T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2018-10-25T00:00:00&#43;00:00">
   
 
   
 
-  <title>Adding dependencies on the fly in a Makefile | Janus Valberg-Madsen</title>
+  
+
+  <title>Hello World! (2) | Janus Valberg-Madsen</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -296,7 +296,7 @@ I found myself in this very situation not long ago, when I was working on the sl
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Adding dependencies on the fly in a Makefile</h1>
+  <h1 itemprop="name">Hello World! (2)</h1>
 
   
 
@@ -314,9 +314,9 @@ I found myself in this very situation not long ago, when I was working on the sl
 
   <span class="article-date">
     
-    <meta content="2018-10-27 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-    <time datetime="2018-10-27 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-      2018-10-27
+    <meta content="2018-10-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-10-25 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      2018-10-25
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -326,18 +326,26 @@ I found myself in this very situation not long ago, when I was working on the sl
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/2018/10/27/adding-dependencies-on-the-fly-in-a-makefile/#disqus_thread"></a>
+  <a href="/2018/10/hello-world-2/#disqus_thread"></a>
   
 
   
   
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/r/">R</a>
+    
+  </span>
   
   
 
@@ -347,35 +355,35 @@ I found myself in this very situation not long ago, when I was working on the sl
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f"
+         href="https://twitter.com/intent/tweet?text=Hello%20World%21%20%282%29&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2fhello-world-2%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2fhello-world-2%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f&amp;title=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2fhello-world-2%2f&amp;title=Hello%20World%21%20%282%29"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f&amp;title=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2fhello-world-2%2f&amp;title=Hello%20World%21%20%282%29"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Adding%20dependencies%20on%20the%20fly%20in%20a%20Makefile&amp;body=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2f27%2fadding-dependencies-on-the-fly-in-a-makefile%2f">
+         href="mailto:?subject=Hello%20World%21%20%282%29&amp;body=https%3a%2f%2fjanusvm.github.io%2f2018%2f10%2fhello-world-2%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -397,164 +405,125 @@ I found myself in this very situation not long ago, when I was working on the sl
     <div class="article-style" itemprop="articleBody">
       
 
-<p>Imagine the following situation:</p>
+<p>Second time&rsquo;s the charm, right?</p>
 
-<p>You have a bunch of files that are being built by the same rule in a Makefile, but some of them further depend on some other input files.
-It&rsquo;s far from the most of the targets that have these dependences, and those that do depend on different subsets of the extra dependences.
-How should the Makefile for this look?</p>
+<p>Last time I made an attempt at getting my <code>github.io</code> site up and running, it ended up being half-baked and I left it unused for over a year.
+In the meantime, my number of repositories with GitHub Pages steadily increased, resulting in a bunch of <code>janusvm.github.io/repo</code> links that were nowhere to be found on what ought to be the root site.</p>
 
-<p>I found myself in this very situation not long ago, when I was working on the slides for my <a href="/talk/aau-git-workshop/">Git Workshop</a>, which included a lot of SVG figures depicting commit graphs.
-Each of these figures were generated from a <code>.tex</code> file using Latexmk, so the associated build targets and rule looked something like this:</p>
+<p>After giving three talks this month, each with slides on GH Pages, I decided it was time to organise my stuff and update this website.
+Being an R enthusiast, it was a no-brainer for me to use <a href="https://bookdown.org/yihui/blogdown/" target="_blank">blogdown</a>, and following the recommendation in the book, I opted for the <a href="https://sourcethemes.com/academic/" target="_blank">Academic Hugo theme</a> for its nice defaults, extra features, and customisation options.</p>
 
-<pre><code class="language-makefile">SVG := $(patsubst %.tex,%.svg,$(wildcard figs/*.tex))
+<h2 id="theme-customisations">Theme customisations</h2>
 
-$(SVG): %.svg: %.tex
-	@cd figs &amp;&amp; \
-	latexmk -pdf -quiet $(&lt;F) &amp;&amp; \
-	pdf2svg $(&lt;F:.tex=.pdf) $(@F) &amp;&amp; \
-	latexmk -C $(&lt;F)
+<p>The Academic theme has eight built-in colour themes and three font themes, but none of them hit the mark 100% for me.
+When it comes to colour themes, I&rsquo;m hopelessly in love with <a href="https://github.com/arcticicestudio/nord" target="_blank">Nord</a> — I use it for Emacs, Bash, and whatever else that lets me configure its interface colours.
+Here&rsquo;s how I&rsquo;ve set it up on this site:</p>
+
+<p>In a file called <code>/data/themes/nord.toml</code>:</p>
+
+<pre><code class="language-toml"># Theme metadata
+name = &quot;Nord&quot;
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = &quot;#bf616a&quot;
+primary_light = &quot;#d08770&quot;
+primary_dark = &quot;#a5545b&quot;
+
+# Menu
+menu_primary = &quot;#3b4252&quot;
+menu_text = &quot;#eceff4&quot;
+menu_text_active = &quot;#88c0d0&quot;
+menu_title = &quot;#eceff4&quot;
+
+# Home sections
+home_section_odd = &quot;#fff&quot;
+home_section_even = &quot;#eff2f7&quot;
 </code></pre>
 
-<p>The first line defines a list of the eventual SVG files by looking up all the <code>.tex</code> files in subdirectory <code>figs</code> and changing their file extensions to <code>.svg</code>.
-In the next line, a <a href="https://www.gnu.org/software/make/manual/html_node/Static-Usage.html" target="_blank">static pattern rule</a> is telling Make to use the pattern <code>%.svg: %.tex</code> only for the targets defined in that list.
-The files are built by compiling a PDF with <code>pdflatex</code> (via <code>latexmk</code>), converting that into an SVG with <code>pdf2svg</code>, and finally deleting all the auxiliary build files again with <code>latexmk</code>.</p>
+<p>and then in my <code>config.toml</code>:</p>
 
-<p>So far so good, but there was one problem:
-in a few of those SVGs, I included some icons in the form of PDFs from another subdirectory <code>figs/icons</code>.
-To make a long story short, I wanted to use some FontAwesome icons for certain things, which required me to compile with <code>xelatex</code>, but the graphs in the SVGs got messed up, if I didn&rsquo;t use <code>pdflatex</code> for those.</p>
-
-<p>So, as a compromise, I compiled PDF files for each of the FA symbols I needed and input them with <code>\includegraphics</code> in the graphs, adding the following lines to my Makefile:</p>
-
-<pre><code class="language-makefile">PDF := $(patsubst %.tex,%.pdf,$(wildcard figs/icons/*.tex))
-
-$(PDF): %.pdf: %.tex
-	@cd figs/icons &amp;&amp; \
-	latexmk -xelatex -quiet $(&lt;F) &amp;&amp; \
-	latexmk -c $(&lt;F)
+<pre><code class="language-toml">color_theme = &quot;nord&quot;
 </code></pre>
 
-<p>Same as before, except it uses <code>xelatex</code> (again via <code>latexmk</code>) to compile, and there&rsquo;s no conversion to SVG.</p>
+<p>This sets the colours of just about everything except for code blocks.
+<a href="https://highlightjs.org/" target="_blank">Highlight.js</a> <em>does</em> have the Nord theme, but it turns out it isn&rsquo;t on the CDNJS server yet, which means that you can&rsquo;t just put <code>highlight_style = &quot;nord&quot;</code> in <code>config.toml</code>.</p>
 
-<p>The question was now: how do I express the relationship between the PDF icons and the SVG figures in my Makefile?</p>
+<p>Instead, download <code>nord.css</code> from the <a href="https://github.com/highlightjs/highlight.js" target="_blank">repository</a>, put it in <code>/static/css</code>, and add <code>&quot;nord.css&quot;</code> to the <code>custom_css</code> array in the config, e.g.</p>
 
-<h3 id="attempt-1-just-slapping-it-in-there">Attempt 1: just slapping it in there</h3>
-
-<p>My first impulse was to simply add the <code>PDF</code> list as a dependency to <code>SVG</code>.
-Simple.</p>
-
-<pre><code class="language-makefile">$(SVG): %.svg: %.tex $(PDF)
+<pre><code class="language-toml">custom_css = [&quot;nord.css&quot;, &quot;fonts/iosevka.css&quot;, &quot;custom.css&quot;]
 </code></pre>
 
-<p>And sure, it worked, but it caused <strong>every single SVG figure</strong> to be rebuilt if <strong>any</strong> PDF icon had been changed.
-No good.</p>
+<p>The other two CSS files in there define the <a href="https://github.com/be5invis/Iosevka" target="_blank">Iosevka</a> font face and some miscellaneous adjustments, respectively.
+I have used many different monospace fonts for coding, but after recently discovering Iosevka, I may finally have found a font to settle down with.</p>
 
-<h3 id="attempt-2-adding-an-additional-rule-to-a-subset-of-the-svgs">Attempt 2: adding an additional rule to a subset of the SVGs</h3>
+<p>The fonts used on the site are customised via the file <code>/data/fonts/custom.toml</code>:</p>
 
-<p>Then, I had the idea to peek a bit in the files to determine which of the <code>SVG</code> targets should <em>actually</em> depend on <code>PDF</code>, taking advantage of the fact that you can define <a href="https://www.gnu.org/software/make/manual/html_node/Multiple-Rules.html" target="_blank">multiple rules for the same target</a> (as long as you only have one build recipe):</p>
+<pre><code class="language-toml"># Font style metadata
+name = &quot;Custom&quot;
 
-<pre><code class="language-makefile">SVG_WITH_ICONS := $(shell grep -l '\\includegraphics' figs/*.tex)
+# Optional Google font URL
+google_fonts = &quot;Abel|Roboto:400,400italic,700|Roboto+Condensed:300&quot;
 
-$(SVG_WITH_ICONS): $(PDF)
+# Font families
+heading_font = &quot;Abel&quot;
+body_font = &quot;Roboto&quot;
+nav_font = &quot;Roboto Condensed&quot;
+mono_font = &quot;Iosevka SS04 Web&quot;
+
+# Font size
+font_size = &quot;20&quot;
+font_size_small = &quot;16&quot;
 </code></pre>
 
-<p>Adding these two lines improved the situation slightly;
-only the targets that included at least one PDF icon were rebuilt when the PDF changed, but still all of them for any PDF.
-Hmm.</p>
+<p>and the config entry:</p>
 
-<h3 id="attempt-3-enter-metaprogramming">Attempt 3: enter metaprogramming</h3>
-
-<p>Long after I gave the talk those figures were for, I finally found an acceptable solution for the problem: Make&rsquo;s <a href="https://www.gnu.org/software/make/manual/html_node/Eval-Function.html" target="_blank">eval function</a>.</p>
-
-<p>Put shortly, you can define a rule which is deferred and can be expanded (<code>eval</code>&lsquo;ed) in a different context.
-This was exactly what I needed, as it allowed me to write automatic, extra rules for each individual <code>SVG</code> target!
-Here&rsquo;s how:</p>
-
-<pre><code class="language-makefile">define PDF_RULE
-$T: $(shell grep -hoE '\bicons/.+\b' $(T:.svg=.tex) \
-      | sort -u | sed -e 's/$$/.pdf/g' -e 's/^/figs\//g' \
-      | paste -s -d ' ')
-endef
-
-$(foreach T,$(SVG),$(eval $(PDF_RULE)))
+<pre><code class="language-toml">font = &quot;custom&quot;
 </code></pre>
 
-<p>There&rsquo;s a lot going on in <code>PDF_RULE</code>, so here&rsquo;s a breakdown:</p>
+<h2 id="deployment">Deployment</h2>
 
-<ul>
-<li><code>$T</code> is a variable to be expanded later into the individual files in <code>SVG</code></li>
+<p>It turns out to be relatively simple to have the source files in one repository and the published site in another, if you&rsquo;re comfortable using git submodules:</p>
 
-<li><p><code>grep -hoE '\bicons/.+\b' $(T:.svg=.tex)</code> prints all the occurences of a string starting with &lsquo;icons/&rsquo; in the corresponding <code>.tex</code> file as individual lines, e.g.</p>
+<ol>
+<li>Create the repository <code>user.github.io</code> on GitHub (where <code>user</code> is your username)</li>
 
-<pre><code>icons/user
-icons/laptop
-icons/server
+<li><p>If you don&rsquo;t initialise it with any files, push an empty commit (from a temporary folder somewhere else) to it first:</p>
+
+<pre><code>git init
+git commit -m &quot;Initial commit&quot; --allow-empty
+git remote add origin https://github.com/user/user.github.io.git
+git push -u origin master
 </code></pre></li>
 
-<li><p><code>sort -u</code> sorts the lines and (more importantly) deletes duplicates</p></li>
+<li><p>From the folder with your blog source (assuming it&rsquo;s already a git repository), add <code>user.github.io</code> as a submodule in <code>/public</code>:</p>
 
-<li><p><code>sed -e 's/$$/.pdf/g' -e 's/^/figs\//g'</code> first appends <code>.pdf</code> to the end (<code>$</code>) of the lines, then prepends <code>figs/</code> to the beginning (<code>^</code>), e.g.</p>
+<pre><code>rm -rf public
+git submodule add -b master https://github.com/user/user.github.io.git public
+</code></pre></li>
 
-<pre><code>figs/icons/user.pdf
-figs/icons/laptop.pdf
-figs/icons/server.pdf
-</code></pre>
+<li><p>Build the site:</p>
 
-<p>(since <code>$</code> is a special character used for expansion in Make, you have to put <code>$$</code> to treat it as a literal <code>$</code> symbol)</p></li>
+<pre><code>hugo
+</code></pre></li>
 
-<li><p>lastly, <code>paste -s -d ' '</code> collapses the lines into one line, separated by spaces</p></li>
-</ul>
+<li><p>Commit and push the submodule:</p>
 
-<p>When the <code>foreach</code> loop is run, the contents of <code>PDF_RULE</code> is expanded for each of the files in <code>SVG</code>, resulting in <em>new rules being added at runtime</em>.
-So for example, when expanded for a file which <em>doesn&rsquo;t</em> include any PDFs, e.g. <code>figs/git-add.svg</code>, it produces the empty rule</p>
+<pre><code>cd public
+git add .
+git commit -m &quot;Build site&quot;
+git push -u origin master
+</code></pre></li>
+</ol>
 
-<pre><code class="language-makefile">figs/git-add.svg:
-</code></pre>
+<p>After that, the site is deployed.
+In my experience, GitHub Pages sometimes don&rsquo;t actually build the site the first time you push after activating Pages, so if nothing shows up after a few minutes, try pushing another commit.</p>
 
-<p>which does nothing.
-However, when expanded for a file which <em>does</em> include PDFs, e.g. <code>figs/git-push.svg</code>, the <code>shell</code> command looks through <code>figs/git-push.tex</code>, finds the included graphics <code>icons/laptop.pdf</code> and <code>icons/server.pdf</code> and creates the rule</p>
+<h2 id="links">Links</h2>
 
-<pre><code class="language-makefile">figs/git-push.svg: figs/icons/laptop.pdf figs/icons/server.pdf
-</code></pre>
-
-<p>which causes <code>figs/git-push.svg</code> to be rebuilt whenever those specific PDFs are changed.
-So basically, this corresponds to manually writing out rules for each individual SVG file, but it&rsquo;s all done automatically!</p>
-
-<p>Here&rsquo;s the full Makefile:</p>
-
-<pre><code class="language-makefile">SVG := $(patsubst %.tex,%.svg,$(wildcard figs/*.tex))
-PDF := $(patsubst %.tex,%.pdf,$(wildcard figs/icons/*.tex))
-
-all: $(SVG)
-
-define PDF_RULE
-$T: $(shell grep -hoE '\bicons/.+\b' $(T:.svg=.tex) \
-      | sort -u | sed -e 's/$$/.pdf/g' -e 's/^/figs\//g' \
-      | paste -s -d ' ')
-endef
-
-$(foreach T,$(SVG),$(eval $(PDF_RULE)))
-
-$(SVG): %.svg: %.tex
-	@cd figs &amp;&amp; \
-	latexmk -pdf -quiet $(&lt;F) &amp;&amp; \
-	pdf2svg $(&lt;F:.tex=.pdf) $(@F) &amp;&amp; \
-	latexmk -C $(&lt;F)
-
-$(PDF): %.pdf: %.tex
-	@cd figs/icons &amp;&amp; \
-	latexmk -xelatex -quiet $(&lt;F) &amp;&amp; \
-	latexmk -c $(&lt;F)
-
-clean:
-	@rm -f $(SVG)
-	@rm -f $(PDF)
-	@cd figs &amp;&amp; latexmk -C
-	@cd figs/icons &amp;&amp; latexmk -C
-
-.PHONY: all clean
-</code></pre>
-
-<p>As a final comment, I should probably point out that I use GNU Make — I&rsquo;m not sure if any of the above features are GNU specific.</p>
+<p>I found <a href="https://lmyint.github.io/post/hugo-academic-tips" target="_blank">this post</a> by Leslie Myint in addition to <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github" target="_blank">Hugo&rsquo;s hosting guide</a> and the <a href="https://sourcethemes.com/academic/docs" target="_blank">Academic theme documentation</a> to be very helpful when setting up this site.</p>
 
     </div>
 
@@ -563,9 +532,7 @@ clean:
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/makefile/">makefile</a>
-  
-  <a class="badge badge-light" href="/tags/metaprogramming/">metaprogramming</a>
+  <a class="badge badge-light" href="/tags/blogdown/">blogdown</a>
   
 </div>
 
@@ -662,16 +629,6 @@ clean:
 
 
     
-    
-    <div class="article-widget">
-      <div class="hr-light"></div>
-      <h3>Related</h3>
-      <ul>
-        
-        <li><a href="/talk/nse-aalborgrug/">Non-Standard Evaluation and Metaprogramming in R</a></li>
-        
-      </ul>
-    </div>
     
 
     
