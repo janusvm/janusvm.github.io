@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sql on Janus Valberg-Madsen</title>
+    <link>https://janusvm.github.io/tags/sql/</link>
+    <description>Recent content in sql on Janus Valberg-Madsen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 18 Mar 2019 00:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://janusvm.github.io/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSOR2019: Relational Databases And Their Use</title>
+      <link>https://janusvm.github.io/talk/aau-csor-db/</link>
+      <pubDate>Mon, 18 Mar 2019 00:00:00 +0100</pubDate>
+      
+      <guid>https://janusvm.github.io/talk/aau-csor-db/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
